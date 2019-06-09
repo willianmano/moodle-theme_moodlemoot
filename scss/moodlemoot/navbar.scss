@@ -1,7 +1,21 @@
 .navbar {
-    background-color: $primary;
+    background-color: inherit;
     min-height: 70px;
     max-height: 70px;
+    z-index: 1000;
+
+    &.bgmoodle {
+        background-color: $primary;
+    }
+
+    &.frontpage {
+        min-height: 100px;
+        max-height: 100px;
+
+        .logo img {
+            max-height: 70px;
+        }
+    }
 
     .navbar-brand,
     .navbar-nav a.dropdown-toggle,
