@@ -24,7 +24,25 @@
         }
 
         .nextedition {
-            color: $white;
+            background-color: $white;
+
+            .banner {
+                padding-left: 0;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .infos {
+                padding-left: 0;
+                padding-top: .5rem;
+
+                h5 {
+                    color: $primary;
+                }
+            }
         }
 
         .bg-section {
@@ -78,15 +96,17 @@
         background-color: inherit;
     }
 
-    #frontpage-available-course-list h2 {
-        text-align: center;
+    #frontpage-available-course-list {
+        overflow: hidden;
+
+        h2 {
+            text-align: center;
+        }
     }
 
     .dashboard-card-deck {
-        overflow: hidden;
-
         .dashboard-card {
-            width: calc(33% - .5rem);
+            width: calc(33% - 1rem);
             border: none;
             transition: all 0.25s;
 

@@ -237,24 +237,6 @@ class course_renderer extends \core_course_renderer {
 
         $content = extras::get_course_summary_image($course, $courselink);
 
-        // Course instructors.
-        if ($course->has_course_contacts()) {
-            $content .= html_writer::start_tag('div', array('class' => 'course-contacts'));
-
-            $instructors = $course->get_course_contacts();
-            foreach ($instructors as $key => $instructor) {
-                $name = $instructor['username'];
-                $url = $CFG->wwwroot.'/user/profile.php?id='.$key;
-                $picture = extras::get_user_picture($DB->get_record('user', array('id' => $key)));
-
-                $content .= "<a href='{$url}' class='contact' data-toggle='tooltip' title='{$name}'>";
-                $content .= "<img src='{$picture}' class='rounded-circle' alt='{$name}'/>";
-                $content .= "</a>";
-            }
-
-            $content .= html_writer::end_tag('div'); // Ends course-contacts.
-        }
-
         $content .= html_writer::start_tag('div', array('class' => 'card-body'));
         $content .= "<h4 class='card-title'>". $coursenamelink ."</h4>";
 
@@ -268,21 +250,23 @@ class course_renderer extends \core_course_renderer {
 
         $content .= html_writer::end_tag('div');
 
-        $content .= html_writer::start_tag('div', array('class' => 'card-footer'));
+        if (isloggedin()) {
+            $content .= html_writer::start_tag('div', array('class' => 'card-footer'));
 
-        // Print enrolmenticons.
-        if ($icons = enrol_get_course_info_icons($course)) {
-            foreach ($icons as $pixicon) {
-                $content .= $this->render($pixicon);
+            // Print enrolmenticons.
+            if ($icons = enrol_get_course_info_icons($course)) {
+                foreach ($icons as $pixicon) {
+                    $content .= $this->render($pixicon);
+                }
             }
+
+            $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
+            $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
+                get_string('access', 'theme_moodlemoot'), array('class' => 'card-link btn btn-primary'));
+            $content .= html_writer::end_tag('div'); // End pull-right.
+
+            $content .= html_writer::end_tag('div'); // End card-footer.
         }
-
-        $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
-        $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-            get_string('access', 'theme_moodlemoot'), array('class' => 'card-link btn btn-primary'));
-        $content .= html_writer::end_tag('div'); // End pull-right.
-
-        $content .= html_writer::end_tag('div'); // End card-block.
 
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {

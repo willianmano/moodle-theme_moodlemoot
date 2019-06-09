@@ -35,5 +35,10 @@ $templatecontext = [
 if (isloggedin()) {
     echo $OUTPUT->render_from_template('theme_moodlemoot/frontpage', $templatecontext);
 } else {
+    $editionsinfo = new stdClass();
+    $editionsinfo->users = 3213;
+    $editionsinfo->editions = 19;
+    $templatecontext['wearetxt'] = get_string('wearetxt', 'theme_moodlemoot', $editionsinfo);
+
     echo $OUTPUT->render_from_template('theme_moodlemoot/frontpage_guest', $templatecontext);
 }
