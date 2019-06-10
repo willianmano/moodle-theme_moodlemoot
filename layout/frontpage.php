@@ -40,5 +40,9 @@ if (isloggedin()) {
     $editionsinfo->editions = 19;
     $templatecontext['wearetxt'] = get_string('wearetxt', 'theme_moodlemoot', $editionsinfo);
 
+    $currentedition = \theme_moodlemoot\util\extras::get_currentedition_infos();
+
+    $templatecontext['currentedition'] = $currentedition;
+
     echo $OUTPUT->render_from_template('theme_moodlemoot/frontpage_guest', $templatecontext);
 }

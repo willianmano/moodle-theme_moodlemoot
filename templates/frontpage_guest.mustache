@@ -65,28 +65,28 @@
 
         <div class="row nextedition">
             <div class="col-md-9 p-l-0 banner">
-                <img src="http://localhost/moodlebrasil/pluginfile.php/25/format_moodlemoot/moodlemoot/879338035/header.jpg?forcedownload=1" alt="Moodle Moot SlZ">
+                <img src="{{{ currentedition.courseheader }}}" alt="Moodle Moot SlZ">
             </div>
             <div class="col-md-3 p-t-1 p-l-0 infos">
                 <h5>{{#str}}nextedition, theme_moodlemoot{{/str}}</h5>
 
-                <p>MoodleMoot SLZ</p>
+                <p>{{{ currentedition.fullname }}}</p>
 
                 <h5>{{#str}}when, theme_moodlemoot{{/str}}</h5>
 
-                <p><i class="fa fa-calendar"></i> 10 e 11 de outubro</p>
+                <p><i class="fa fa-calendar"></i> {{{ currentedition.date }}}</p>
 
                 <h5>{{#str}}where, theme_moodlemoot{{/str}}</h5>
 
-                <p><i class="fa fa-map-marker"></i> Universidade Estadual do Maranhão</p>
+                <p><i class="fa fa-map-marker"></i> {{{ currentedition.place }}}</p>
 
-                <a href="#" class="btn btn-outline-primary btn-block">{{#str}}signupevent, theme_moodlemoot{{/str}}</a>
+                <a href="{{{ config.wwwroot }}}/course/view.php?id={{{ currentedition.id }}}" class="btn btn-outline-primary btn-block">{{#str}}signupevent, theme_moodlemoot{{/str}}</a>
             </div>
         </div>
 
         <div class="bg-section">
             <div class="bg-wrapper">
-                <div class="bg-content" style="background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,.2),rgba(0,0,0,.2)) , url(http://localhost/moodlebrasil/pluginfile.php/25/format_moodlemoot/moodlemoot/879338035/header.jpg?forcedownload=1); background-image: linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.2)) , url(http://localhost/moodlebrasil/pluginfile.php/25/format_moodlemoot/moodlemoot/879338035/header.jpg?forcedownload=1);">
+                <div class="bg-content" style="background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,.2),rgba(0,0,0,.2)) , url({{{ currentedition.courseheader }}}); background-image: linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.2)) , url({{{ currentedition.courseheader }}});">
                 </div>
             </div>
         </div>

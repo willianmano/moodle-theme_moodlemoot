@@ -41,3 +41,27 @@ $string['nextedition'] = 'Next edition';
 $string['when'] = 'When?';
 $string['where'] = 'Where?';
 $string['signupevent'] = 'Sign up for this event';
+
+// General settings tab.
+$string['generalsettings'] = 'General';
+$string['currentedition'] = 'Current MM Edition';
+$string['currenteditiondesc'] = 'This edition will be spotlighted on frontpage';
+$string['googleanalytics'] = 'Google Analytics Code';
+$string['googleanalyticsdesc'] = 'Please enter your Google Analytics code to enable analytics on your website. The code format shold be like [UA-XXXXX-Y]';
+
+// Footer settings tab.
+$string['footersettings'] = 'Footer';
+$string['facebook'] = 'Facebook URL';
+$string['facebookdesc'] = 'Enter the URL of your Facebook. (i.e http://www.facebook.com/moodlehq)';
+$string['instagram'] = 'Instagram URL';
+$string['instagramdesc'] = 'Enter the URL of your Instagram. (i.e https://www.instagram.com/moodlehq)';
+$string['twitter'] = 'Twitter URL';
+$string['twitterdesc'] = 'Enter the URL of your twitter. (i.e http://www.twitter.com/moodlehq)';
+$string['youtube'] = 'Youtube URL';
+$string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtube.com/user/moodlehq)';
+$string['telegram'] = 'Telegram URL';
+$string['telegramdesc'] = 'Enter the URL of your Youtube. (i.e https://www.telegram.me/moodlehq)';
+$string['mail'] = 'E-Mail';
+$string['maildesc'] = 'Enter E-Mail ID';
+$string['faq'] = 'FAQ';
+$string['faqdesc'] = 'FAQ URL';
