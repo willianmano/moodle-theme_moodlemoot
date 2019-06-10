@@ -54,49 +54,26 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{> theme_moodlemoot/navbar }}
+    <div id="page" class="container">
 
-    <div id="page" class="container-fluid">
-        {{{ output.full_header }}}
-
-        <div id="page-content" class="row {{#haspreblocks}} blocks-pre {{/haspreblocks}} {{#haspostblocks}} blocks-post {{/haspostblocks}}">
+        <div id="page-content" class="row">
             <div id="region-main-box" class="region-main">
-                {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
-                    <div> {{{ output.region_main_settings_menu }}} </div>
-                </div>
-                {{/hasregionmainsettingsmenu}}
                 <section id="region-main" class="region-main-content" aria-label="{{#str}}content{{/str}}">
-                    {{#hasregionmainsettingsmenu}}
-                        <div class="region_main_settings_menu_proxy"></div>
-                    {{/hasregionmainsettingsmenu}}
                     {{{ output.course_content_header }}}
                     {{{ output.main_content }}}
                     {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
                 </section>
             </div>
-            <div class="columnleft blockcolumn {{#haspreblocks}} has-blocks {{/haspreblocks}}">
-                <section data-region="blocks-column" class="hidden-print" aria-label="{{#str}}blocks{{/str}}">
-                    {{{ sidepreblocks }}}
-                </section>
-            </div>
-
-            <div class="columnright blockcolumn {{#haspostblocks}} has-blocks {{/haspostblocks}}">
-                <section data-region="blocks-column" class="hidden-print" aria-label="{{#str}}blocks{{/str}}">
-                    {{{ sidepostblocks }}}
-                </section>
-            </div>
         </div>
     </div>
-    {{{ output.standard_after_main_region_html }}}
 
-    {{> theme_moodlemoot/footer }}
+    {{{ output.standard_after_main_region_html }}}
 </div>
 
 </body>
 </html>
 {{#js}}
-require(['theme_boost/loader']);
+    require(['theme_boost/loader']);
 {{/js}}
 

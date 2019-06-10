@@ -26,6 +26,8 @@ namespace theme_moodlemoot\output;
 
 defined('MOODLE_INTERNAL') || die;
 
+use context_course;
+use context_system;
 use custom_menu;
 use moodle_url;
 use html_writer;
@@ -296,5 +298,73 @@ class core_renderer extends \core_renderer {
             $this->render($am),
             $usermenuclasses
         );
+    }
+
+    /**
+     * Return the site's compact logo URL, if any.
+     *
+     * @param int $maxwidth The maximum width, or null when the maximum width does not matter.
+     * @param int $maxheight The maximum height, or null when the maximum height does not matter.
+     * @return moodle_url|false
+     */
+    public function get_compact_logo_url($maxwidth = null, $maxheight = 200) {
+        $logo = get_config('core_admin', 'logocompact');
+
+        if (empty($logo)) {
+            return false;
+        }
+
+        // Hide the requested size in the file path.
+        $filepath = ((int) $maxwidth . 'x' . (int) $maxheight) . '/';
+
+        // Use $CFG->themerev to prevent browser caching when the file changes.
+        return moodle_url::make_pluginfile_url(context_system::instance()->id, 'core_admin', 'logocompact', $filepath,
+            theme_get_revision(), $logo);
+    }
+
+    /**
+     * Renders the login form.
+     *
+     * @param \core_auth\output\login $form The renderable.
+     *
+     * @return string
+     *
+     * @throws \moodle_exception
+     */
+    public function render_login(\core_auth\output\login $form) {
+        global $CFG, $SITE;
+
+        $context = $form->export_for_template($this);
+
+        // Override because rendering is not supported in template yet.
+        if ($CFG->rememberusername == 0) {
+            $context->cookieshelpiconformatted = $this->help_icon('cookiesenabledonlysession');
+        } else {
+            $context->cookieshelpiconformatted = $this->help_icon('cookiesenabled');
+        }
+        $context->errorformatted = $this->error_text($context->error);
+        $url = $this->get_logo_url();
+        if ($url) {
+            $url = $url->out(false);
+        }
+        $context->logourl = $url;
+        $context->sitename = format_string($SITE->fullname, true,
+            ['context' => context_course::instance(SITEID), "escape" => false]);
+
+        if ($context->hasidentityproviders) {
+            foreach ($context->identityproviders as $key => $identityprovider) {
+                if ($identityprovider['name'] == 'Google') {
+                    $context->identityproviders[$key]['iconurl'] = '<i class="fa fa-google"></i>';
+                    $context->identityproviders[$key]['classes'] = 'btn-google';
+                }
+
+                if ($identityprovider['name'] == 'Facebook') {
+                    $context->identityproviders[$key]['iconurl'] = '<i class="fa fa-facebook-square"></i>';
+                    $context->identityproviders[$key]['classes'] = 'btn-facebook';
+                }
+            }
+        }
+
+        return $this->render_from_template('core/loginform', $context);
     }
 }

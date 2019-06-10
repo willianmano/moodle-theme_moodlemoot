@@ -1,0 +1,96 @@
+#page-login-index {
+    background-color: #0f6265;
+    background-image: url('[[pix:theme|mmbg]]');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    .logo {
+        margin-top: 2rem;
+        img {
+            max-height: 120px;
+        }
+    }
+
+    .instructions {
+        .potentialidplist {
+            display: flex;
+
+            .potentialidp {
+                flex: 0 0 50%;
+
+                &:first-of-type {
+                    padding-right: .5rem;
+                }
+
+                &:last-of-type {
+                    padding-left: .5rem;
+                }
+
+                .btn {
+                    color: $white;
+                }
+
+                .btn-google {
+                    background-color: #d34836;
+
+                    &:hover {
+                        background-color: #b03626;
+                    }
+                }
+
+                .btn-facebook {
+                    background-color: #3b5998;
+
+                    &:hover {
+                        background-color: #2d4373;
+                    }
+                }
+            }
+        }
+    }
+
+    .loginpanel {
+        border: none;
+
+        .form {
+            .input-group-addon {
+                width: 40px;
+                line-height: 30px;
+                padding: 4px 10px;
+                margin-bottom: 0;
+                font-size: 1rem;
+                text-align: center;
+                background-color: #eceeef;
+                border: 1px solid rgba(0, 0, 0, .15);
+                border-right: 0;
+            }
+            .input-group-username .input-group-addon {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            .input-group-password .input-group-addon {
+                border-top: 0;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+            #username,
+            #password {
+                border: 1px solid rgba(0, 0, 0, .15);
+                height: 44px;
+            }
+            #username {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            #password {
+                border-top: 0;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+            #loginbtn {
+                padding: 0.5rem;
+            }
+        }
+    }
+}

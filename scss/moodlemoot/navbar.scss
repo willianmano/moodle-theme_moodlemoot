@@ -8,12 +8,24 @@
         background-color: $primary;
     }
 
+    &.bgdark {
+        background-color: $navbar-dark-color;
+    }
+
     &.frontpage {
         min-height: 100px;
         max-height: 100px;
 
         .logo img {
             max-height: 70px;
+        }
+    }
+
+    .navbar-brand {
+        padding: 0;
+
+        .logo img {
+            max-height: calc(70px - 1rem);
         }
     }
 
@@ -26,7 +38,7 @@
 
     .langmenu .icon,
     .popover-region-toggle .icon {
-        font-size: 28px;
+        font-size: 22px;
         vertical-align: middle;
         margin: 0;
     }
@@ -35,8 +47,8 @@
         margin-right: 20px;
 
         .popover-region-toggle {
-            width: 28px;
-            height: 28px;
+            width: 22px;
+            height: 22px;
         }
 
         .popover-region-container {
@@ -119,8 +131,8 @@
     }
 
     .langmenu {
-        width: 28px;
-        height: 28px;
+        width: 22px;
+        height: 22px;
         margin-right: 20px;
 
         .dropdown {
@@ -137,8 +149,8 @@
 
         .dropdown-menu {
             left: initial;
-            right: -30px;
-            top: 20px;
+            right: -28px;
+            top: 12px;
 
             &:before {
                 content: "";
@@ -172,18 +184,19 @@
     .popover-region-notifications {
         .popover-region-toggle {
             &:before {
-                right: 4px;
-                bottom: -17px;
+                right: 1px;
+                bottom: -18px;
             }
 
             &:after {
-                right: 5px;
-                bottom: -18px;
+                right: 2px;
+                bottom: -19px;
             }
         }
 
         .popover-region-container {
-            top: 45px;
+            top: 40px;
+            right: -10px;
         }
     }
 

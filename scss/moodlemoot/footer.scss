@@ -1,5 +1,5 @@
 #page-footer {
-    background-color: #373a3c;
+    background-color: $navbar-dark-color;
     color: $white;
     margin-top: 2rem;
     padding: 1rem 0;
@@ -54,7 +54,7 @@
     }
 
     .fa {
-        color: #ff0000;
+        color: #ff0;
     }
 
     a {

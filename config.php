@@ -83,10 +83,8 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
     ),
     'login' => array(
-        'theme' => 'boost',
         'file' => 'login.php',
         'regions' => array(),
-        'options' => array('langmenu' => true),
     ),
 
     // Pages that appear in pop-up windows - no navigation, no blocks, no header.
