@@ -66,3 +66,11 @@ $string['mail'] = 'E-Mail';
 $string['maildesc'] = 'Digite o E-Mail de contato';
 $string['faq'] = 'FAQ';
 $string['faqdesc'] = 'URL do FAQ';
+
+// Mypublic page.
+$string['userprofile'] = 'Perfil do usuário';
+$string['details'] = 'Detalhes';
+$string['startedon'] = 'Iniciado em';
+$string['addcontact'] = 'Adicionar contato';
+$string['removecontact'] = 'Remover contato';
+$string['certificates'] = 'Certificados';

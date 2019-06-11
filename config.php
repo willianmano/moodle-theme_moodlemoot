@@ -75,7 +75,7 @@ $THEME->layouts = [
     ),
     // My public page.
     'mypublic' => array(
-        'file' => 'columns.php',
+        'file' => 'mypublic.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),

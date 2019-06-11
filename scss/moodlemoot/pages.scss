@@ -18,6 +18,9 @@ body {
     }
 }
 
-#page-my-index #page {
-    margin-top: 20px;
+#page-my-index,
+#page-user-profile {
+    #page {
+        margin-top: 20px;
+    }
 }
