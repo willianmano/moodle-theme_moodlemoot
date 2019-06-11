@@ -85,9 +85,16 @@ class extras {
         return $course;
     }
 
-    public static function get_courseheader_url($course) {
+    public static function get_total_site_users() {
+        global $DB;
 
+        return $DB->count_records('user', array('deleted' => 0, 'suspended' => 0)) - 1;
     }
+
+    public static function get_total_editions() {
+        return 19;
+    }
+
     /**
      * Returns the first course's summary issue
      *

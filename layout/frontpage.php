@@ -32,17 +32,13 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes
 ];
 
-if (isloggedin()) {
-    echo $OUTPUT->render_from_template('theme_moodlemoot/frontpage', $templatecontext);
-} else {
-    $editionsinfo = new stdClass();
-    $editionsinfo->users = 3213;
-    $editionsinfo->editions = 19;
-    $templatecontext['wearetxt'] = get_string('wearetxt', 'theme_moodlemoot', $editionsinfo);
+$editionsinfo = new stdClass();
+$editionsinfo->users = \theme_moodlemoot\util\extras::get_total_site_users();
+$editionsinfo->editions = \theme_moodlemoot\util\extras::get_total_editions();
+$templatecontext['wearetxt'] = get_string('wearetxt', 'theme_moodlemoot', $editionsinfo);
 
-    $currentedition = \theme_moodlemoot\util\extras::get_currentedition_infos();
+$currentedition = \theme_moodlemoot\util\extras::get_currentedition_infos();
 
-    $templatecontext['currentedition'] = $currentedition;
+$templatecontext['currentedition'] = $currentedition;
 
-    echo $OUTPUT->render_from_template('theme_moodlemoot/frontpage_guest', $templatecontext);
-}
+echo $OUTPUT->render_from_template('theme_moodlemoot/frontpage', $templatecontext);

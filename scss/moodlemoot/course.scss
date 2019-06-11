@@ -1,3 +1,32 @@
 .format-moodlemoot .course-content .sidecontent h5 {
     color: $primary;
 }
+
+@include media-breakpoint-down(md) {
+    .format-moodlemoot .course-content {
+        .coursecontent {
+            h3 {
+                margin-top: 0 !important;
+                font-size: 1.2em;
+            }
+
+            .mform {
+                display: none;
+            }
+        }
+
+        .sidecontent {
+            .mform {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .format-moodlemoot  {
+        #page-wrapper #page {
+            padding: 0;
+        }
+    }
+}

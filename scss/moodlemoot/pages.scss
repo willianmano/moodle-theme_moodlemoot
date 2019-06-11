@@ -6,11 +6,14 @@ body {
     margin-top: 0;
 }
 
-#region-main {
-    padding: 0;
-    border: none;
-}
-
 #maincontent {
     height: 0;
+}
+
+#page-site-index.pagelayout-frontpage,
+#page-course-view-moodlemoot {
+    #region-main {
+        padding: 0;
+        border: none;
+    }
 }

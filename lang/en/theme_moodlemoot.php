@@ -41,6 +41,7 @@ $string['nextedition'] = 'Next edition';
 $string['when'] = 'When?';
 $string['where'] = 'Where?';
 $string['signupevent'] = 'Sign up for this event';
+$string['madewitmoodle'] = 'Proudly made with';
 
 // General settings tab.
 $string['generalsettings'] = 'General';

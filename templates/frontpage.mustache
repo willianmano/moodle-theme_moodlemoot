@@ -54,48 +54,65 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{>theme_moodlemoot/navbar}}
+    {{>theme_moodlemoot/navbar-frontpage}}
 
-    <div id="page" class="container-fluid">
-        {{{ output.full_header }}}
+    <div class="container" id="frontpageheader">
+        <div class="title">
+            <h2>{{#str}}joinus, theme_moodlemoot{{/str}}</h2>
 
-        <div id="page-content" class="row {{#haspreblocks}} blocks-pre {{/haspreblocks}} {{#haspostblocks}} blocks-post {{/haspostblocks}}">
-            <div id="region-main-box" class="region-main">
-                {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
-                    <div> {{{ output.region_main_settings_menu }}} </div>
+            <p>{{{ wearetxt }}}</p>
+        </div>
+
+        <div class="row nextedition">
+            <div class="col-md-9 p-l-0 banner">
+                <img src="{{{ currentedition.courseheader }}}" alt="Moodle Moot SlZ">
+            </div>
+            <div class="col-md-3 p-t-1 p-l-0 infos">
+                <h5>{{#str}}nextedition, theme_moodlemoot{{/str}}</h5>
+
+                <p>{{{ currentedition.fullname }}}</p>
+
+                <h5>{{#str}}when, theme_moodlemoot{{/str}}</h5>
+
+                <p><i class="fa fa-calendar"></i> {{{ currentedition.date }}}</p>
+
+                <h5>{{#str}}where, theme_moodlemoot{{/str}}</h5>
+
+                <p><i class="fa fa-map-marker"></i> {{{ currentedition.place }}}</p>
+
+                <a href="{{{ config.wwwroot }}}/course/view.php?id={{{ currentedition.id }}}" class="btn btn-outline-primary btn-block">{{#str}}signupevent, theme_moodlemoot{{/str}}</a>
+            </div>
+        </div>
+
+        <div class="bg-section">
+            <div class="bg-wrapper">
+                <div class="bg-content" style="background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,.2),rgba(0,0,0,.2)) , url({{{ currentedition.courseheader }}}); background-image: linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.2)) , url({{{ currentedition.courseheader }}});">
                 </div>
-                {{/hasregionmainsettingsmenu}}
+            </div>
+        </div>
+    </div>
+
+    <div id="page" class="container">
+        <div id="page-content" class="row">
+            <div id="region-main-box" class="region-main">
                 <section id="region-main" class="region-main-content" aria-label="{{#str}}content{{/str}}">
-                    {{#hasregionmainsettingsmenu}}
-                        <div class="region_main_settings_menu_proxy"></div>
-                    {{/hasregionmainsettingsmenu}}
                     {{{ output.course_content_header }}}
                     {{{ output.main_content }}}
                     {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
                 </section>
             </div>
-            <div class="columnleft blockcolumn {{#haspreblocks}} has-blocks {{/haspreblocks}}">
-                <section data-region="blocks-column" class="hidden-print" aria-label="{{#str}}blocks{{/str}}">
-                    {{{ sidepreblocks }}}
-                </section>
-            </div>
-
-            <div class="columnright blockcolumn {{#haspostblocks}} has-blocks {{/haspostblocks}}">
-                <section data-region="blocks-column" class="hidden-print" aria-label="{{#str}}blocks{{/str}}">
-                    {{{ sidepostblocks }}}
-                </section>
-            </div>
         </div>
     </div>
+
     {{{ output.standard_after_main_region_html }}}
-    {{> theme_boost/footer }}
+
+    {{> theme_moodlemoot/footer }}
 </div>
 
 </body>
 </html>
 {{#js}}
-require(['theme_boost/loader']);
+    require(['theme_boost/loader']);
 {{/js}}
 
