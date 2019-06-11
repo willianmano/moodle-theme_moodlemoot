@@ -24,19 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-// Evita de um usuario visitante acessar diretamente as atividades dos demais topicos sem estar matriculado.
-if ($this->page->cm) {
-    if ((int)$this->page->cm->sectionnum > 0 && (!is_enrolled($this->page->context) || !is_siteadmin())) {
-        redirect(new moodle_url('/course/view.php', ['id' => $this->page->course->id, 'page' => 'introduction']));
-    }
-}
-
 $bodyattributes = $OUTPUT->body_attributes();
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
-    'bodyattributes' => $bodyattributes
+    'bodyattributes' => $bodyattributes,
+    'issiteadmin' => is_siteadmin() ? true : false
 ];
 
-echo $OUTPUT->render_from_template('theme_moodlemoot/column', $templatecontext);
+echo $OUTPUT->render_from_template('theme_moodlemoot/mydashboard', $templatecontext);

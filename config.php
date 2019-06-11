@@ -64,16 +64,14 @@ $THEME->layouts = [
     ),
     // Server administration scripts.
     'admin' => array(
-        'file' => 'columns.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
+        'file' => 'admin.php',
+        'regions' => array()
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'columns.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-pre',
-        'options' => array('nonavbar' => true, 'langmenu' => true, 'nocontextheader' => true),
+        'file' => 'mydashboard.php',
+        'regions' => array('side-post'),
+        'defaultregion' => 'side-post',
     ),
     // My public page.
     'mypublic' => array(

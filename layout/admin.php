@@ -24,13 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-// Evita de um usuario visitante acessar diretamente as atividades dos demais topicos sem estar matriculado.
-if ($this->page->cm) {
-    if ((int)$this->page->cm->sectionnum > 0 && (!is_enrolled($this->page->context) || !is_siteadmin())) {
-        redirect(new moodle_url('/course/view.php', ['id' => $this->page->course->id, 'page' => 'introduction']));
-    }
-}
-
 $bodyattributes = $OUTPUT->body_attributes();
 
 $templatecontext = [
