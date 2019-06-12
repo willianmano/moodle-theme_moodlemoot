@@ -1,4 +1,5 @@
-#page-login-index {
+#page-login-index,
+#page-login-signup {
     background-color: #0f6265;
     background-image: url('[[pix:theme|mmbg]]');
     background-repeat: repeat;
@@ -11,7 +12,9 @@
             max-height: 120px;
         }
     }
+}
 
+#page-login-index {
     .instructions {
         .potentialidplist {
             display: flex;
@@ -92,5 +95,71 @@
                 padding: 0.5rem;
             }
         }
+    }
+}
+
+#page-login-signup {
+    .collapsible-actions {
+        display: none;
+    }
+
+    .card-title h1 {
+        text-align: center;
+        font-size: 2em;
+        border-bottom: 1px dashed #dee2e6;
+        padding-bottom: 1rem;
+    }
+
+    .mform .form-inline .form-control,
+    .mform .form-inline .custom-select {
+        width: 100%;
+    }
+
+    legend.ftoggler {
+        display: none;
+    }
+
+    .collapsible:last-of-type {
+        border-bottom: none;
+    }
+
+    .collapsed .fcontainer {
+        display: block;
+    }
+
+    .col-md-3,
+    .col-md-9 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .col-md-3 .float-sm-right {
+        float: left !important; /* stylelint-disable-line declaration-no-important */
+    }
+
+    .fcontainer {
+        display: flex;
+        flex-wrap: wrap;
+
+        .form-group {
+            padding: 0 1rem;
+            flex: 1 1 50%;
+            width: 100%;
+        }
+    }
+
+    #fgroup_id_buttonar .form-inline.felement {
+        justify-content: flex-end;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    #page-login-signup .fcontainer {
+        display: block;
+    }
+    .form-group {
+        padding: 0;
+        margin: 0 0 1rem 0;
     }
 }

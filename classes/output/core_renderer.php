@@ -26,6 +26,7 @@ namespace theme_moodlemoot\output;
 
 defined('MOODLE_INTERNAL') || die;
 
+use coding_exception;
 use context_course;
 use context_system;
 use custom_menu;
@@ -35,6 +36,8 @@ use action_menu_filler;
 use action_menu;
 use pix_icon;
 use action_menu_link_secondary;
+use renderable;
+use templatable;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
@@ -51,6 +54,9 @@ class core_renderer extends \core_renderer {
      * Renders the lang menu
      *
      * @return mixed
+     *
+     * @throws \moodle_exception
+     * @throws coding_exception
      */
     public function render_lang_menu() {
         $langs = get_string_manager()->get_list_of_translations();
