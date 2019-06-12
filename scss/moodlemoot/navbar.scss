@@ -236,3 +236,33 @@
     top: 70px;
     height: calc(100% - 70px);
 }
+
+@include media-breakpoint-down(sm) {
+    .navbar.frontpage {
+        display: block;
+        min-height: 120px;
+        max-height: 120px;
+
+        .navlogo {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+
+            .navbar-brand {
+                margin: 0;
+            }
+        }
+
+        .navbar-nav.ml-auto {
+            justify-content: center;
+
+            .langmenu {
+                display: none;
+            }
+
+            .usermenu {
+                margin-right: 0;
+            }
+        }
+    }
+}

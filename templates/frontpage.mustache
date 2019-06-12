@@ -57,13 +57,15 @@
     {{>theme_moodlemoot/navbar-frontpage}}
 
     <div class="container" id="frontpageheader">
+        {{^isloggedin}}
         <div class="title">
             <h2>{{#str}}joinus, theme_moodlemoot{{/str}}</h2>
 
             <p>{{{ wearetxt }}}</p>
         </div>
+        {{/isloggedin}}
 
-        <div class="row nextedition">
+        <div class="row nextedition {{#isloggedin}}md-mt-3{{/isloggedin}}">
             <div class="col-md-9 p-l-0 banner">
                 <img src="{{{ currentedition.courseheader }}}" alt="Moodle Moot SlZ">
             </div>

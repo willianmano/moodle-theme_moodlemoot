@@ -129,8 +129,40 @@
     }
 }
 
+@include media-breakpoint-up(md) {
+    .nextedition.md-mt-3 {
+        margin-top: 3rem;
+    }
+}
+
 @include media-breakpoint-down(md) {
     #page-site-index.pagelayout-frontpage .dashboard-card-deck .dashboard-card {
         width: 100%;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    #page-site-index.pagelayout-frontpage #frontpageheader {
+        margin-bottom: 0;
+
+        .title {
+            h2 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+
+        .nextedition {
+            .banner {
+                padding-right: 0;
+            }
+
+            .infos {
+                padding: 1rem !important; /* stylelint-disable-line declaration-no-important */
+            }
+        }
     }
 }
