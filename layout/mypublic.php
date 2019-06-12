@@ -43,6 +43,7 @@ $context = context_course::instance(SITEID);
 $usercourses = \theme_moodlemoot\util\extras::user_courses_with_progress($user);
 $templatecontext['hascourses'] = (count($usercourses)) ? true : false;
 $templatecontext['courses'] = array_values($usercourses);
+$templatecontext['totalcourses'] = count($usercourses);
 
 $templatecontext['user'] = $user;
 $templatecontext['user']->profilepicture = \theme_moodlemoot\util\extras::get_user_picture($user, 100);
@@ -51,7 +52,13 @@ $templatecontext['headerbuttons'] = \theme_moodlemoot\util\extras::get_mypublic_
 
 $certificates = \theme_moodlemoot\util\extras::get_issued_certificates($user->id);
 
+$groupedcertificates = [];
+if ($certificates) {
+    $groupedcertificates = array_values(\theme_moodlemoot\util\extras::group_certificates_by_course($certificates));
+}
+
 $templatecontext['hascoursescertificates'] = (count($certificates)) ? true : false;
-$templatecontext['coursescertificates'] = array_values($certificates);
+$templatecontext['totalissuedcertificates'] = count($certificates);
+$templatecontext['coursescertificates'] = $groupedcertificates;
 
 echo $OUTPUT->render_from_template('theme_moodlemoot/mypublic', $templatecontext);

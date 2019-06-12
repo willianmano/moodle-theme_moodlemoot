@@ -236,7 +236,7 @@ class extras {
             $iscontact = !empty(\core_message\api::get_contact($USER->id, $user->id)) ? 1 : 0;
             $contacttitle = $iscontact ? 'removecontact' : 'addcontact';
             $contacturlaction = $iscontact ? 'removecontact' : 'addcontact';
-            $contactimage = $iscontact ? 'slicon-user-unfollow' : 'slicon-user-follow';
+            $contactimage = $iscontact ? 'fa fa-user-times' : 'fa fa-address-card';
             $headerbuttons = [
                 [
                     'title' => get_string('sendmessage', 'core_message'),
@@ -265,7 +265,12 @@ class extras {
     }
 
     public static function get_issued_certificates($userid) {
-        global $DB, $CFG;
+        global $DB, $USER;
+
+        // Somente administradores podem ver os certificados dos outros usuarios.
+        if ($USER->id != $userid && !is_siteadmin()) {
+            return [];
+        }
 
         $sql = 'SELECT sci.*, sc.name, c.id as courseid, c.fullname, c.shortname
                 FROM {simplecertificate_issues} sci
@@ -290,6 +295,17 @@ class extras {
                 continue;
             }
 
+            $returndata[] = $certificate;
+        }
+
+        return $returndata;
+    }
+
+    public static function group_certificates_by_course($certificates) {
+        $returndata = [];
+
+        foreach ($certificates as $certificate) {
+
             $certs = [$certificate];
             if (isset($returndata[$certificate->courseid])) {
                 $certs = array_merge($certs, $returndata[$certificate->courseid]['certificates']);
@@ -309,5 +325,4 @@ class extras {
 
         return $returndata;
     }
-
 }

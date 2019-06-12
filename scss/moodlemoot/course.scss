@@ -22,7 +22,7 @@
     .format-moodlemoot .course-content {
         .coursecontent {
             h3 {
-                margin-top: 0 !important;
+                margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
                 font-size: 1.2em;
             }
 
@@ -40,7 +40,7 @@
 }
 
 @include media-breakpoint-down(md) {
-    .format-moodlemoot  {
+    .format-moodlemoot {
         #page-wrapper #page {
             padding: 0;
         }
