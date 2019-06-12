@@ -122,7 +122,6 @@ module.exports = function(grunt) {
 
     // Register SCSS taks.
     grunt.registerTask('css', ['stylelint:scss']);
-    // grunt.registerTask('css', ['stylelint:scss', 'sass:dist', 'stylelint:css']);
     grunt.registerTask('decache', ['exec:decache']);
 
     grunt.registerTask('compile', [

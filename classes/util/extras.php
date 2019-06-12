@@ -82,7 +82,8 @@ class extras {
 
         $course = $DB->get_record('course', ['id' => $courseid], 'id, category, fullname, shortname, summary', MUST_EXIST);
 
-        $formatoptions = $DB->get_records('course_format_options', ['courseid' => $courseid, 'format' => 'moodlemoot'], '', 'name, value');
+        $params = ['courseid' => $courseid, 'format' => 'moodlemoot'];
+        $formatoptions = $DB->get_records('course_format_options', $params, '', 'name, value');
 
         foreach ($formatoptions as $key => $value) {
             $course->$key = $value->value;

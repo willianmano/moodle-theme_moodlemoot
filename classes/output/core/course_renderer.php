@@ -132,14 +132,15 @@ class course_renderer extends \core_course_renderer {
             $content .= $pagingbar;
         }
 
+        $carddeckclasses = 'card-deck dashboard-card-deck overflow-hidden justify-content-start';
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'card-deck dashboard-card-deck overflow-hidden justify-content-start'));
+        $content .= html_writer::start_tag('div', array('class' => $carddeckclasses));
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course);
 
             if ($coursecount % 3 == 0) {
                 $content .= html_writer::end_tag('div');
-                $content .= html_writer::start_tag('div', array('class' => 'card-deck dashboard-card-deck overflow-hidden justify-content-start'));
+                $content .= html_writer::start_tag('div', array('class' => $carddeckclasses));
             }
 
             $coursecount ++;
