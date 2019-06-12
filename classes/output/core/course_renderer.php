@@ -56,7 +56,10 @@ class course_renderer extends \core_course_renderer {
      * @param array $courses the list of courses to display
      * @param int|null $totalcount total number of courses (affects display mode if it is AUTO or pagination if applicable),
      *     defaulted to count($courses)
+     *
      * @return string
+     *
+     * @throws \coding_exception
      */
     protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
         global $CFG;
@@ -169,6 +172,8 @@ class course_renderer extends \core_course_renderer {
      * @return string
      *
      * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
         $theme = \theme_config::load('moodlemoot');

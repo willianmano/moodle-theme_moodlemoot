@@ -65,6 +65,14 @@ class extras {
         return $coursesmenu;
     }
 
+    /**
+     * Get the current moodle moot edition infos.
+     *
+     * @return mixed
+     *
+     * @throws \coding_exception
+     * @throws dml_exception
+     */
     public static function get_currentedition_infos() {
         global $DB;
 
@@ -87,12 +95,23 @@ class extras {
         return $course;
     }
 
+    /**
+     * Get the total active site users.
+     *
+     * @return int
+     * @throws dml_exception
+     */
     public static function get_total_site_users() {
         global $DB;
 
         return $DB->count_records('user', array('deleted' => 0, 'suspended' => 0)) - 1;
     }
 
+    /**
+     * Get the total realized editions.
+     *
+     * @return int
+     */
     public static function get_total_editions() {
         return 19;
     }
@@ -264,6 +283,15 @@ class extras {
         return $headerbuttons;
     }
 
+    /**
+     * Get all the issued certificates by the user.
+     *
+     * @param $userid
+     *
+     * @return array
+     *
+     * @throws dml_exception
+     */
     public static function get_issued_certificates($userid) {
         global $DB, $USER;
 
@@ -301,6 +329,13 @@ class extras {
         return $returndata;
     }
 
+    /**
+     * Group certificates by course.
+     *
+     * @param $certificates
+     *
+     * @return array
+     */
     public static function group_certificates_by_course($certificates) {
         $returndata = [];
 
@@ -322,7 +357,6 @@ class extras {
                 'certificates' => $certs
             ];
         }
-
         return $returndata;
     }
 }

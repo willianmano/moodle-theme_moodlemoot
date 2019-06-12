@@ -36,8 +36,7 @@ use action_menu_filler;
 use action_menu;
 use pix_icon;
 use action_menu_link_secondary;
-use renderable;
-use templatable;
+use theme_config;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
@@ -311,7 +310,10 @@ class core_renderer extends \core_renderer {
      *
      * @param int $maxwidth The maximum width, or null when the maximum width does not matter.
      * @param int $maxheight The maximum height, or null when the maximum height does not matter.
+     *
      * @return moodle_url|false
+     *
+     * @throws \dml_exception
      */
     public function get_compact_logo_url($maxwidth = null, $maxheight = 200) {
         $logo = get_config('core_admin', 'logocompact');
@@ -372,5 +374,34 @@ class core_renderer extends \core_renderer {
         }
 
         return $this->render_from_template('core/loginform', $context);
+    }
+
+    /**
+     * The standard tags (meta tags, links to stylesheets and JavaScript, etc.)
+     * that should be included in the <head> tag. Designed to be called in theme
+     * layout.php files.
+     *
+     * @return string HTML fragment.
+     *
+     * @throws coding_exception
+     */
+    public function standard_head_html() {
+        $output = parent::standard_head_html();
+
+        // Add google analytics code.
+        $googleanalyticscode = "<script>
+                                    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+                                    ga.l=+new Date;ga('create', 'GOOGLE-ANALYTICS-CODE', 'auto');
+                                    ga('send', 'pageview');
+                                </script>
+                                <script async src='https://www.google-analytics.com/analytics.js'></script>";
+
+        $theme = theme_config::load('moodlemoot');
+
+        if (!empty($theme->settings->googleanalytics)) {
+            $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
+        }
+
+        return $output;
     }
 }
