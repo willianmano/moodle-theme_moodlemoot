@@ -43,12 +43,6 @@ $string['where'] = 'Onde?';
 $string['signupevent'] = 'Inscreva-se neste evento';
 $string['madewitmoodle'] = 'Orgulhosamente feito com o';
 
-// Enrolment page.
-$string['value'] = 'Valor';
-$string['free'] = 'Curso grátis';
-$string['enrolfreecourseinfo'] = 'Clique no botão abaixo para fazer a sua inscrição.';
-$string['enrolpaidcourseinfo'] = 'Clique no botão abaixo para efetuar o pagamento e fazer a sua inscrição em poucos minutos!';
-
 // General settings tab.
 $string['generalsettings'] = 'Geral';
 $string['currentedition'] = 'Edição atual do MM';

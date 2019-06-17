@@ -6,16 +6,6 @@
         <p class="infotitle">{{#str}}course, core{{/str}}</p>
         <p>{{{ coursename }}}</p>
 
-        <p class="infotitle">{{#str}}value, theme_moodlemoot{{/str}}</p>
-        {{#coursevalue}}
-            <p>{{{ coursevalue }}}</p>
-
-            <p>{{#str}}enrolpaidcourseinfo, theme_moodlemoot{{/str}}</p>
-        {{/coursevalue}}
-        {{^coursevalue}}
-            <p>{{#str}}free, theme_moodlemoot{{/str}}</p>
-
-            <p>{{#str}}enrolfreecourseinfo, theme_moodlemoot{{/str}}</p>
-        {{/coursevalue}}
+        <p>{{{ coursesummary }}}</p>
     </div>
 </div>

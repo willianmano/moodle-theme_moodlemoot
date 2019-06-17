@@ -307,13 +307,10 @@ class course_renderer extends \core_course_renderer {
             $coursename = $chelper->get_course_formatted_name($course);
             $courseimage = extras::get_summary_image_url($course);
 
-            // TODO: buscar valor do curso. Retornar falso caso o curso seja free.
-            $coursevalue = 'R$ 66,00 (BRL 66,00)';
-
             $data = [
                 'coursename' => $coursename,
-                'courseimage' => $courseimage,
-                'coursevalue' => $coursevalue
+                'coursesummary' => $course->summary,
+                'courseimage' => $courseimage
             ];
 
             return $this->render_from_template('theme_moodlemoot/enrol-courseinfobox', $data);
