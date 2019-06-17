@@ -26,9 +26,9 @@ namespace theme_moodlemoot\util;
 
 use dml_exception;
 use format_moodlemoot\manager;
-use html_writer;
 use moodle_url;
 use theme_config;
+use core_course_list_element;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -359,5 +359,35 @@ class extras {
             ];
         }
         return $returndata;
+    }
+
+    /**
+     * Returns the first course's summary issue
+     *
+     * @param $course
+     * @param $courselink
+     *
+     * @return string
+     *
+     * @throws \moodle_exception
+     */
+    public static function get_summary_image_url($course) {
+        $courselist = new core_course_list_element($course);
+
+        foreach ($courselist->get_course_overviewfiles() as $file) {
+            if ($file->is_valid_image()) {
+                $pathcomponents = [
+                    '/pluginfile.php',
+                    $file->get_contextid(),
+                    $file->get_component(),
+                    $file->get_filearea() . $file->get_filepath() . $file->get_filename()
+                ];
+                $path = implode('/', $pathcomponents);
+
+                return (new moodle_url($path))->out();
+            }
+        }
+
+        return (new moodle_url('/theme/moodlemoot/pix/default_course.jpg'))->out();
     }
 }
