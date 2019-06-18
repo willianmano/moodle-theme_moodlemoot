@@ -37,6 +37,7 @@ use action_menu;
 use pix_icon;
 use action_menu_link_secondary;
 use theme_config;
+use core_text;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap

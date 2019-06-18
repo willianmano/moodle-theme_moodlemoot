@@ -230,7 +230,7 @@ class course_renderer extends \core_course_renderer {
      * @throws \moodle_exception
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
-        global $CFG, $DB;
+        global $CFG;
 
         if ($course instanceof stdClass) {
             $course = new core_course_list_element($course);
@@ -286,6 +286,42 @@ class course_renderer extends \core_course_renderer {
             }
         }
 
+        return $content;
+    }
+
+    /**
+     * Renders course info box.
+     *
+     * @param stdClass $course
+     *
+     * @return string
+     *
+     * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
+     */
+    public function course_info_box(stdClass $course) {
+        $chelper = new coursecat_helper();
+
+        if ($this->page->pagetype == 'enrol-index') {
+            $coursename = $chelper->get_course_formatted_name($course);
+            $courseimage = extras::get_summary_image_url($course);
+
+            $data = [
+                'coursename' => $coursename,
+                'coursesummary' => $course->summary,
+                'courseimage' => $courseimage
+            ];
+
+            return $this->render_from_template('theme_moodlemoot/enrol-courseinfobox', $data);
+        }
+
+        $content = '';
+        $content .= $this->output->box_start('generalbox info');
+        $chelper = new coursecat_helper();
+        $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_EXPANDED);
+        $content .= $this->coursecat_coursebox($chelper, $course);
+        $content .= $this->output->box_end();
         return $content;
     }
 }
