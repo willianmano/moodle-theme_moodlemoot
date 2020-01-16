@@ -114,7 +114,7 @@ class extras {
      * @return int
      */
     public static function get_total_editions() {
-        return 19;
+        return 20;
     }
 
     /**
