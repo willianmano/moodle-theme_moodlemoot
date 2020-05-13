@@ -4,12 +4,30 @@
     max-height: 70px;
     z-index: 1000;
 
+    .navbar-brand,
+    .navbar-nav a.dropdown-toggle,
+    .usermenu a .usertext,
+    .popover-region-toggle .icon {
+        color: $white;
+    }
+
     &.bgmoodle {
         background-color: $primary;
     }
 
     &.bgdark {
         background-color: $navbar-dark-color;
+    }
+
+    &.bgwhite {
+        background-color: #fff;
+
+        .navbar-brand,
+        .navbar-nav a.dropdown-toggle,
+        .usermenu a .usertext,
+        .popover-region-toggle .icon {
+            color: $primary;
+        }
     }
 
     &.frontpage {
@@ -27,13 +45,6 @@
         .logo img {
             max-height: calc(70px - 1rem);
         }
-    }
-
-    .navbar-brand,
-    .navbar-nav a.dropdown-toggle,
-    .usermenu a .usertext,
-    .popover-region-toggle .icon {
-        color: $white;
     }
 
     .langmenu .icon,

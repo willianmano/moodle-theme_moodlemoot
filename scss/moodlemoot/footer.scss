@@ -10,31 +10,22 @@
         text-align: center;
 
         img {
-            max-width: 220px;
+            max-width: 100%;
         }
     }
 
     .right-col {
         text-align: right;
-
-        .storelogo {
-            display: inline-block;
-
-            img {
-                width: auto;
-                max-height: 40px;
-            }
-        }
-
         .socialbox {
-            margin-top: 1rem;
-
-            .fa {
-                font-size: 38px;
-                margin-right: 4px;
+            a {
+                margin-right: .5rem;
 
                 &:last-of-type {
                     margin-right: 0;
+                }
+
+                .fa {
+                    font-size: 38px;
                 }
             }
         }
@@ -63,7 +54,7 @@
     }
 
     .madewithmoodle {
-        margin-top: .5rem;
+        margin: 1rem 0;
 
         p {
             display: inline-block;

@@ -32,8 +32,8 @@ $green:   #5cb85c !default;
 $teal:    #20c997 !default;
 $cyan:    #5bc0de !default;
 
-$primary:       #fa8010 !default;
-$secondary:     $gray-800 !default;
+$primary:       #15629f !default;
+$secondary:     #2a344e !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -75,7 +75,7 @@ $card-group-margin: .25rem;
 $theme-colors: () !default;
 $theme-colors: map-merge((
         primary: $primary,
-        secondary: $gray-200,
+        secondary: $secondary,
         success: $success,
         info: $info,
         warning: $orange,
