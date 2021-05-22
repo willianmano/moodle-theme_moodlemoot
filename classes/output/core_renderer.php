@@ -134,8 +134,8 @@ class core_renderer extends \core_renderer {
         if (!isloggedin()) {
             $returnstr = '';
             if (!$loginpage) {
-                $returnstr .= "<a class='btn btn-outline-light' href=\"$loginurl\">" . get_string('login') . '</a>';
-                $returnstr .= "<a class='btn btn-outline-light' href=\"$registerurl\">" . get_string('startsignup') . '</a>';
+                $returnstr .= "<a class='btn btn-outline-primary' href=\"$loginurl\">" . get_string('login') . '</a>';
+                $returnstr .= "<a class='btn btn-outline-primary' href=\"$registerurl\">" . get_string('startsignup') . '</a>';
             }
             return html_writer::div(
                 html_writer::span(

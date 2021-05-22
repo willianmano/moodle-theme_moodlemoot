@@ -4,8 +4,13 @@
         border: none;
     }
 
+    .navbar {
+        background-color: #fff;
+    }
+
     #frontpageheader {
-        margin-bottom: 4rem;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
 
         .title {
             text-align: center;
@@ -144,7 +149,7 @@
 
 @include media-breakpoint-down(sm) {
     #page-site-index.pagelayout-frontpage #frontpageheader {
-        margin-bottom: 0;
+        margin-bottom: 1rem;
 
         .title {
             h2 {

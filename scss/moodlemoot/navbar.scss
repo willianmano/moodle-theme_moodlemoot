@@ -4,13 +4,6 @@
     max-height: 70px;
     z-index: 1000;
 
-    .navbar-brand,
-    .navbar-nav a.dropdown-toggle,
-    .usermenu a .usertext,
-    .popover-region-toggle .icon {
-        color: $white;
-    }
-
     &.bgmoodle {
         background-color: $primary;
     }
@@ -31,9 +24,6 @@
     }
 
     &.frontpage {
-        min-height: 100px;
-        max-height: 100px;
-
         .logo img {
             max-height: 70px;
         }
@@ -161,7 +151,7 @@
         .dropdown-menu {
             left: initial;
             right: -28px;
-            top: 12px;
+            top: 35px;
 
             &:before {
                 content: "";
@@ -226,13 +216,13 @@
         }
 
         .btn {
-            color: $white;
+            color: $primary;
             -webkit-border-radius: 20px;
             -moz-border-radius: 20px;
             border-radius: 20px;
 
             &:hover {
-                color: $primary;
+                color: #fff;
                 text-decoration: none;
             }
 
