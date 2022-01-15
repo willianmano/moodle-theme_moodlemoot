@@ -37,22 +37,19 @@
         }
     }
 
-    .langmenu .icon,
-    .popover-region-toggle .icon {
-        font-size: 22px;
-        vertical-align: middle;
-        margin: 0;
-    }
-
     .popover-region {
-        margin-right: 20px;
+        .popover-region-toggle::before {
+            right: 14px;
+            bottom: -3px;
+        }
 
-        .popover-region-toggle {
-            width: 22px;
-            height: 22px;
+        .popover-region-toggle::after {
+            right: 15px;
+            bottom: -3px;
         }
 
         .popover-region-container {
+            top: 40px;
             .popover-region-header-container {
                 height: 50px;
                 padding: 11px 20px 15px;
@@ -131,75 +128,76 @@
         }
     }
 
-    .langmenu {
-        width: 22px;
-        height: 22px;
-        margin-right: 20px;
-
-        .dropdown {
-            height: 42px;
-        }
-
-        .dropdown-toggle {
-            padding: 0;
-
-            &:after {
-                content: none;
-            }
-        }
-
-        .dropdown-menu {
-            left: initial;
-            right: -28px;
-            top: 35px;
-
-            &:before {
-                content: "";
-                display: inline-block;
-                border-left: 10px solid transparent;
-                border-right: 10px solid transparent;
-                border-bottom: 10px solid #ddd;
-                position: absolute;
-                top: -10px;
-                right: 7px;
-            }
-
-            &:after {
-                content: "";
-                display: inline-block;
-                border-left: 9px solid transparent;
-                border-right: 9px solid transparent;
-                border-bottom: 9px solid #fff;
-                position: absolute;
-                top: -9px;
-                right: 8px;
-                z-index: 2;
-            }
-        }
-    }
-
-    .message .popover-region-toggle {
-        padding: 0;
-    }
-
-    .popover-region-notifications {
-        .popover-region-toggle {
-            &:before {
-                right: 1px;
-                bottom: -18px;
-            }
-
-            &:after {
-                right: 2px;
-                bottom: -19px;
-            }
-        }
-
-        .popover-region-container {
-            top: 40px;
-            right: -10px;
-        }
-    }
+    //
+    //.langmenu {
+    //    width: 22px;
+    //    height: 22px;
+    //    margin-right: 20px;
+    //
+    //    .dropdown {
+    //        height: 42px;
+    //    }
+    //
+    //    .dropdown-toggle {
+    //        padding: 0;
+    //
+    //        &:after {
+    //            content: none;
+    //        }
+    //    }
+    //
+    //    .dropdown-menu {
+    //        left: initial;
+    //        right: -28px;
+    //        top: 35px;
+    //
+    //        &:before {
+    //            content: "";
+    //            display: inline-block;
+    //            border-left: 10px solid transparent;
+    //            border-right: 10px solid transparent;
+    //            border-bottom: 10px solid #ddd;
+    //            position: absolute;
+    //            top: -10px;
+    //            right: 7px;
+    //        }
+    //
+    //        &:after {
+    //            content: "";
+    //            display: inline-block;
+    //            border-left: 9px solid transparent;
+    //            border-right: 9px solid transparent;
+    //            border-bottom: 9px solid #fff;
+    //            position: absolute;
+    //            top: -9px;
+    //            right: 8px;
+    //            z-index: 2;
+    //        }
+    //    }
+    //}
+    //
+    //.message .popover-region-toggle {
+    //    padding: 0;
+    //}
+    //
+    //.popover-region-notifications {
+    //    .popover-region-toggle {
+    //        &:before {
+    //            right: 1px;
+    //            bottom: -18px;
+    //        }
+    //
+    //        &:after {
+    //            right: 2px;
+    //            bottom: -19px;
+    //        }
+    //    }
+    //
+    //    .popover-region-container {
+    //        top: 40px;
+    //        right: -10px;
+    //    }
+    //}
 
     .usermenu {
         margin-right: 15px;
@@ -233,7 +231,7 @@
     }
 }
 
-.message-app.drawer {
+[data-region=right-hand-drawer].drawer {
     top: 70px;
     height: calc(100% - 70px);
 }

@@ -88,6 +88,30 @@ class core_renderer extends \core_renderer {
     }
 
     /**
+     * Renders a custom menu object (located in outputcomponents.php)
+     *
+     * The custom menu this method produces makes use of the YUI3 menunav widget
+     * and requires very specific html elements and classes.
+     *
+     * @staticvar int $menucount
+     * @param custom_menu $menu
+     * @return string
+     */
+    protected function render_custom_menu(custom_menu $menu) {
+        if (!$menu->has_children()) {
+            return '';
+        }
+
+        $content = '';
+        foreach ($menu->get_children() as $item) {
+            $context = $item->export_for_template($this);
+            $content .= $this->render_from_template('core/custom_menu_item', $context);
+        }
+
+        return $content;
+    }
+
+    /**
      * Construct a user menu, returning HTML that can be echoed out by a
      * layout file.
      *
