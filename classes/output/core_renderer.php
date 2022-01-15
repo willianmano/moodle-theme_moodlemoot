@@ -52,6 +52,23 @@ use moodle_page;
  */
 class core_renderer extends \core_renderer {
     /**
+     * Gets the logo to be rendered.
+     *
+     * The priority of get log is: 1st try to get the theme logo, 2st try to get the theme logo
+     * If no logo was found return false
+     *
+     * @return mixed
+     */
+    public function get_logo() {
+        $url = $this->get_logo_url();
+        if ($url) {
+            return $url->out(false);
+        }
+
+        return false;
+    }
+
+    /**
      * Renders the lang menu
      *
      * @return mixed

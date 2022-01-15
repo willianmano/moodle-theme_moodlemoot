@@ -37,20 +37,19 @@
     }
 }}
 <nav class="navbar navbar-expand bgwhite">
-
-        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}
-            {{^ output.should_display_navbar_logo }}
+        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}
+            {{^ output.get_logo }}
                 d-none d-sm-inline
-            {{/ output.should_display_navbar_logo }}
-                ">
-            {{# output.should_display_navbar_logo }}
-                <span class="logo d-none d-sm-inline">
-                    <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">
+            {{/ output.get_logo }}
+        ">
+            {{# output.get_logo }}
+                <span class="logo d-sm-inline">
+                    <img src="{{output.get_logo}}" alt="{{sitename}}">
                 </span>
-            {{/ output.should_display_navbar_logo }}
-            {{^ output.should_display_navbar_logo }}
+            {{/ output.get_logo }}
+            {{^ output.get_logo }}
                 <span class="site-name d-none d-sm-inline">{{{ sitename }}}</span>
-            {{/output.should_display_navbar_logo}}
+            {{/output.get_logo}}
         </a>
 
         <ul class="navbar-nav d-none d-md-flex">
