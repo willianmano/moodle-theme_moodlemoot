@@ -471,4 +471,14 @@ class core_renderer extends \core_renderer {
         return $output;
     }
 
+    /**
+     * Returnst the current course fullname
+     *
+     * @return mixed
+     */
+    public function get_coursefullname() {
+        global $COURSE;
+
+        return $COURSE->fullname;
+    }
 }
