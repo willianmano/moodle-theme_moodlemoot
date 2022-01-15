@@ -31,6 +31,7 @@ if ($this->page->cm && $this->page->course->format == 'moodlemoot') {
     }
 }
 
+$extraclasses = [];
 if (isset($PAGE->cm->modname)) {
     $extraclasses[] = 'immersive-course-mode';
 }
