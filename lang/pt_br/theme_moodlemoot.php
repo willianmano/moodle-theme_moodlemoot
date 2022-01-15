@@ -62,3 +62,6 @@ $string['sidepanel'] = 'Painel lateral';
 $string['unavailable'] = 'Não disponível';
 $string['prev_activity'] = 'Atividade anterior';
 $string['next_activity'] = 'Próxima atividade';
+$string['redirectmessage'] = 'Esta página deveria ser redirecionada automaticamente.';
+$string['redirectbtntext'] = 'Se nada acontecer, por favor clique aqui para continuar.';
+

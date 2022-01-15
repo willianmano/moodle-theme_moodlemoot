@@ -62,3 +62,5 @@ $string['sidepanel'] = 'Side panel';
 $string['unavailable'] = 'Unavailable';
 $string['prev_activity'] = 'Previous activity';
 $string['next_activity'] = 'Next activity';
+$string['redirectmessage'] = 'This page should automatically redirect.';
+$string['redirectbtntext'] = 'If nothing is happening please click here to continue.';
