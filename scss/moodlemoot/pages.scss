@@ -24,3 +24,11 @@ body {
         margin-top: 20px;
     }
 }
+
+.reset-links-focus {
+    outline: none;
+    color: $primary;
+    background-color: initial;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}

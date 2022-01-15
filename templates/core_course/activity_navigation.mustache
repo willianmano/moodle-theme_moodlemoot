@@ -64,3 +64,34 @@
         }
     }
 }}
+<div class="card activity-navigation">
+    <div class="card-body">
+        {{< core/columns-1to1to1}}
+            {{$column1}}
+                <div id="prev-activity" class="float-left">
+                    {{#prevlink}}
+                        <span class="nav-guide">
+                            {{#str}}prev_activity, theme_moodlemoot{{/str}}
+                        </span>
+                        {{> core/action_link }}
+                    {{/prevlink}}
+                </div>
+            {{/column1}}
+            {{$column2}}
+                <div class="mdl-align">
+                    {{#activitylist}}{{> core/url_select }}{{/activitylist}}
+                </div>
+            {{/column2}}
+            {{$column3}}
+                <div id="next-activity" class="float-right">
+                    {{#nextlink}}
+                        <span class="nav-guide">
+                            {{#str}}next_activity, theme_moodlemoot{{/str}}
+                        </span>
+                        {{> core/action_link }}
+                    {{/nextlink}}
+                </div>
+            {{/column3}}
+        {{/ core/columns-1to1to1}}
+    </div>
+</div>

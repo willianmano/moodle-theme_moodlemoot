@@ -70,7 +70,8 @@ $THEME->layouts = [
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'mydashboard.php',
-        'regions' => array('side-post'),
+        'regions' => array('side-post', 'side-pre'),
+        'options' => array('nonavbar' => true, 'nocontextheader' => true),
         'defaultregion' => 'side-post',
     ),
     // My public page.

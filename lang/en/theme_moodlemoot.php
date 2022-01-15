@@ -57,3 +57,8 @@ $string['startedon'] = 'Started on';
 $string['addcontact'] = 'Add contact';
 $string['removecontact'] = 'Remove contact';
 $string['certificates'] = 'Certificates';
+
+$string['sidepanel'] = 'Side panel';
+$string['unavailable'] = 'Unavailable';
+$string['prev_activity'] = 'Previous activity';
+$string['next_activity'] = 'Next activity';

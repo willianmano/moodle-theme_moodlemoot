@@ -1,0 +1,77 @@
+<div id="nav-sidebar" data-region="sidebar" class="hidden-print moodle-has-zindex" aria-hidden="true" tabindex="-1">
+    <div class="topside">
+        <div data-region="sidebar-toggle" class="d-inline-block">
+            <button aria-expanded="false" aria-controls="nav-sidebar" type="button" class="btn nav-link float-sm-left" data-action="toggle-sidebar">
+                <i class="fa fa-times sidebar-toggle"></i><span class="sr-only">{{#str}}sidepanel, theme_moodlemoot{{/str}}</span>
+            </button>
+        </div>
+
+        <div class="navbar-brand ml-auto mr-auto">
+            {{# output.get_logo }}
+                <a href="{{ config.wwwroot }}">
+                    <span class="logo">
+                        <img src="{{output.get_logo}}" alt="{{sitename}}">
+                    </span>
+                </a>
+            {{/ output.get_logo }}
+            {{^ output.get_logo }}
+                <a href="{{{ config.wwwroot }}}" id="sidebar-brand">
+                    <span class="site-name d-none d-md-inline">{{{ sitename }}}</span>
+                </a>
+            {{/ output.get_logo }}
+        </div>
+    </div>
+    <div id="accordion">
+        {{#sections}}
+            <div class="card">
+                {{#available}}
+                    <div class="card-header" id="heading-{{{ id }}}">
+                        {{#iscompleted}}
+                            <div class="progress-round">
+                                <i class="fa fa-check-circle-o completed icon"></i>
+                            </div>
+                        <span>{{/iscompleted}}</span>
+                        {{^iscompleted}}
+                            <div class="progress-round" data-percentage="{{{ progress }}}">
+                                <svg class="progress-round__svg" viewBox="0 0 32 32">
+                                    <circle class="progress-round__stroke" r="50%" cx="50%" cy="50%"></circle>
+                                    <circle class="progress-round__stroke" r="50%" cx="50%" cy="50%"></circle>
+                                </svg>
+                            </div>
+                        {{/iscompleted}}
+
+                        <h3 data-toggle="collapse" data-target="#collapse-{{{ id }}}" {{#active}}class="collapsed"{{/active}} aria-expanded="{{#active}}true{{/active}}{{^active}}false{{/active}}" aria-controls="collapse-{{{ id }}}">
+                            {{{ name }}}
+                            <i class="fa rotate-icon"></i>
+                        </h3>
+                    </div>
+
+                    <div id="collapse-{{{ id }}}" class="collapse {{#active}}show{{/active}}" aria-labelledby="heading-{{{ id }}}" data-parent="#accordion">
+                        <div class="card-body">
+                            {{#activities}}
+                                {{#available}}
+                                    <a href="{{{ url }}}" {{#active}}class="active"{{/active}} {{#availableinfo}}data-toggle="tooltip" data-html="true" data-placement="right" title="{{{ availableinfo }}}"{{/availableinfo}}>
+                                        {{#completed}}<i class="fa fa-check-circle-o completed icon"></i>{{/completed}}
+                                        {{^completed}}<i class="fa fa-circle icon"></i>{{/completed}}
+                                        <span>{{{ name }}}</span>
+                                    </a>
+                                {{/available}}
+                                {{^available}}
+                                    <a href="javascript:void(0);" class="notavailable" data-toggle="tooltip" data-html="true" data-placement="right" title="{{{ availableinfo }}}"><i class="fa fa-circle icon"></i><span>{{{ name }}}</span> <span class="small">({{#str}}unavailable, theme_moodlemoot{{/str}})</span></a>
+                                {{/available}}
+                            {{/activities}}
+                        </div>
+                    </div>
+                {{/available}}
+                {{^available}}
+                    <div class="card-header notavailable" id="heading-{{{ id }}}" {{#availableinfo}}data-toggle="tooltip" data-html="true" data-placement="right" title="{{{ availableinfo }}}"{{/availableinfo}}>
+                        <h3>{{{ name }}} <span class="small">({{#str}}unavailable, theme_moodlemoot{{/str}})</span></h3>
+                    </div>
+                {{/available}}
+            </div>
+        {{/sections}}
+    </div>
+</div>
+
+<!-- Dark Overlay element -->
+<div id="overlay-sidebar" class="sidebar-toggle" aria-expanded="false" aria-hidden="true"></div>

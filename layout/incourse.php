@@ -31,7 +31,11 @@ if ($this->page->cm && $this->page->course->format == 'moodlemoot') {
     }
 }
 
-$bodyattributes = $OUTPUT->body_attributes();
+if (isset($PAGE->cm->modname)) {
+    $extraclasses[] = 'immersive-course-mode';
+}
+
+$bodyattributes = $OUTPUT->body_attributes($extraclasses);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
@@ -39,4 +43,16 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes
 ];
 
-echo $OUTPUT->render_from_template('theme_moodlemoot/column', $templatecontext);
+if (isset($PAGE->cm->modname)) {
+    $context = context_course::instance($this->page->course->id);
+
+    $courseutil = new \theme_moodlemoot\util\course($this->page->course);
+    $sections = $courseutil->get_sections_and_actvities($this->page->cm);
+
+    $templatecontext['sections'] = $sections;
+    $templatecontext['caneditcourse'] = has_capability('moodle/course:update', $context);
+
+    echo $OUTPUT->render_from_template('theme_moodlemoot/incourse_immersive', $templatecontext);
+} else {
+    echo $OUTPUT->render_from_template('theme_moodlemoot/column', $templatecontext);
+}

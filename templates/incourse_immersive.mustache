@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_moodlemoot/admin
+    @template theme_moodlemoot/columns
 
     Admin time setting template.
 
@@ -46,7 +46,18 @@
         "haspostblocks":true
     }
 }}
-{{> theme_moodlemoot/head }}
+{{{ output.doctype }}}
+<html {{{ output.htmlattributes }}}>
+<head>
+    <title>{{{ output.page_title }}}</title>
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    {{{ output.standard_head_html }}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
 
 <body {{{ bodyattributes }}}>
 
@@ -54,37 +65,54 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{> theme_moodlemoot/navbar }}
+    {{> theme_moodlemoot/incourse_immersive_navbar }}
 
     <div id="page" class="container">
-        {{#issiteadmin}}
+        {{#caneditcourse}}
             {{{ output.full_header }}}
-        {{/issiteadmin}}
+        {{/caneditcourse}}
 
-        <div id="page-content" class="row">
-            <div id="region-main-box" class="region-main col-xs-12">
+        <div id="page-content" class="{{#haspreblocks}} blocks-post {{/haspreblocks}}">
+            <div id="region-main-box" class="region-main">
+                {{#hasregionmainsettingsmenu}}
+                    <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
+                        <div> {{{ regionmainsettingsmenu }}} </div>
+                    </div>
+                {{/hasregionmainsettingsmenu}}
                 <section id="region-main" class="region-main-content" aria-label="{{#str}}content{{/str}}">
+                    {{#hasregionmainsettingsmenu}}
+                        <div class="region_main_settings_menu_proxy"></div>
+                    {{/hasregionmainsettingsmenu}}
                     {{{ output.course_content_header }}}
                     {{{ output.main_content }}}
                     {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
+                </section>
+            </div>
 
-                    {{#hasblocks}}
-                        {{{ sidepreblocks }}}
-                    {{/hasblocks}}
+            <div class="columnright blockcolumn {{#haspreblocks}} has-blocks {{/haspreblocks}}">
+                <section data-region="blocks-column" class="hidden-print" aria-label="{{#str}}blocks{{/str}}">
+                    {{{ sidepreblocks }}}
                 </section>
             </div>
         </div>
     </div>
-
     {{{ output.standard_after_main_region_html }}}
 
     {{> theme_moodlemoot/footer }}
+
+    {{> theme_moodlemoot/incourse_immersive_navdrawer }}
+
 </div>
 
 </body>
 </html>
 {{#js}}
     require(['theme_boost/loader']);
-{{/js}}
 
+    require(['theme_moodlemoot/sidebar', 'theme_boost/bootstrap/tooltip'], function(sidebar, tool) {
+        sidebar.init();
+
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+{{/js}}

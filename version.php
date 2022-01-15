@@ -32,6 +32,5 @@ $plugin->maturity = MATURITY_STABLE;
 $plugin->component = 'theme_moodlemoot';
 $plugin->dependencies = array(
     'theme_boost' => 2019051100,
-    'format_moodlemoot' => 2019061201,
-    'mod_simplecertificate' => 2018082000
+    'format_preview' => 2020061500
 );

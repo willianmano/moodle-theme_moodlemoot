@@ -34,11 +34,9 @@ $templatecontext = [
 ];
 
 $editionsinfo = new stdClass();
-$editionsinfo->users = \theme_moodlemoot\util\extras::get_total_site_users();
-$editionsinfo->editions = \theme_moodlemoot\util\extras::get_total_editions();
 $templatecontext['wearetxt'] = get_string('wearetxt', 'theme_moodlemoot', $editionsinfo);
 
-$currentedition = \theme_moodlemoot\util\extras::get_currentedition_infos();
+$currentedition = \theme_moodlemoot\util\extras::get_slideshow_courses();
 
 $templatecontext['currentedition'] = $currentedition;
 

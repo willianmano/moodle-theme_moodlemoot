@@ -41,80 +41,15 @@ defined('MOODLE_INTERNAL') || die();
  */
 class extras {
     /**
-     * Get the list of visible courses
-     *
-     * @return array
-     *
-     * @throws dml_exception
-     */
-    public static function get_courseslist_select() {
-        global $DB;
-
-        $sql = 'SELECT id, shortname FROM {course} WHERE visible = 1 AND id > 1 ORDER BY id DESC';
-        $courses = $DB->get_records_sql($sql);
-
-        if (empty($courses)) {
-            return [];
-        }
-
-        $coursesmenu = [];
-        foreach ($courses as $course) {
-            $coursesmenu[$course->id] = $course->shortname;
-        }
-
-        return $coursesmenu;
-    }
-
-    /**
-     * Get the current moodle moot edition infos.
+     * Get the slideshow courses list.
      *
      * @return mixed
      *
      * @throws \coding_exception
      * @throws dml_exception
      */
-    public static function get_currentedition_infos() {
-        global $DB;
-
-        $theme = theme_config::load('moodlemoot');
-
-        $courseid = $theme->settings->currentedition;
-
-        $course = $DB->get_record('course', ['id' => $courseid], 'id, category, fullname, shortname, summary', MUST_EXIST);
-
-        $params = ['courseid' => $courseid, 'format' => 'moodlemoot'];
-        $formatoptions = $DB->get_records('course_format_options', $params, '', 'name, value');
-
-        foreach ($formatoptions as $key => $value) {
-            $course->$key = $value->value;
-        }
-
-        $coursemanager = new manager($course);
-
-        $course->courseheader = $coursemanager->get_courseheader_url();
-
-        return $course;
-    }
-
-    /**
-     * Get the total active site users.
-     *
-     * @return int
-     * @throws dml_exception
-     */
-    public static function get_total_site_users() {
-        global $DB;
-
-        return $DB->count_records('user', array('deleted' => 0, 'suspended' => 0)) - 1;
-    }
-
-    /**
-     * Get the total realized editions.
-     *
-     * @return int
-     */
-    public static function get_total_editions() {
-        return 20;
+    public static function get_slideshow_courses() {
+        return [];
     }
 
     /**
