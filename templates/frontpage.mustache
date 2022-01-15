@@ -56,42 +56,8 @@
 
     {{>theme_moodlemoot/navbar}}
 
-    <div class="container" id="frontpageheader">
-        {{^isloggedin}}
-        <div class="title">
-            <h2>Plataforma de eventos do UEMANet</h2>
+    <div class="container" id="frontpageslideshow">
 
-            <p>Cadastre-se, inscreva-se, participe!</p>
-        </div>
-        {{/isloggedin}}
-
-        <div class="row nextedition {{#isloggedin}}md-mt-3{{/isloggedin}}">
-            <div class="col-md-9 p-l-0 banner">
-                <img src="{{{ currentedition.courseheader }}}" alt="Moodle Moot SlZ">
-            </div>
-            <div class="col-md-3 p-t-1 p-l-0 infos">
-                <h5>{{#str}}nextedition, theme_moodlemoot{{/str}}</h5>
-
-                <p>{{{ currentedition.fullname }}}</p>
-
-                <h5>{{#str}}when, theme_moodlemoot{{/str}}</h5>
-
-                <p><i class="fa fa-calendar"></i> {{{ currentedition.date }}}</p>
-
-                <h5>{{#str}}where, theme_moodlemoot{{/str}}</h5>
-
-                <p><i class="fa fa-map-marker"></i> {{{ currentedition.place }}}</p>
-
-                <a href="{{{ config.wwwroot }}}/course/view.php?id={{{ currentedition.id }}}" class="btn btn-outline-primary btn-block">{{#str}}signupevent, theme_moodlemoot{{/str}}</a>
-            </div>
-        </div>
-
-        <div class="bg-section">
-            <div class="bg-wrapper">
-                <div class="bg-content" style="background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,.2),rgba(0,0,0,.2)) , url({{{ currentedition.courseheader }}}); background-image: linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.2)) , url({{{ currentedition.courseheader }}});">
-                </div>
-            </div>
-        </div>
     </div>
 
     <div id="page" class="container">

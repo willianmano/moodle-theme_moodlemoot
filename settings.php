@@ -39,21 +39,11 @@ if ($ADMIN->fulltree) {
     */
     $page = new admin_settingpage('theme_moodlemoot_general', get_string('generalsettings', 'theme_moodlemoot'));
 
-    // Course format option.
-//    $name = 'theme_moodlemoot/currentedition';
-//    $title = get_string('currentedition', 'theme_moodlemoot');
-//    $description = get_string('currenteditiondesc', 'theme_moodlemoot');
-//    $options = theme_moodlemoot\util\extras::get_courseslist_select();
-//    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
-//    $setting->set_updatedcallback('theme_reset_all_caches');
-//    $page->add($setting);
-
     $name = 'theme_moodlemoot/slideshowcourses';
     $title = get_string('slideshowcourses', 'theme_moodlemoot');
     $description = get_string('slideshowcoursesdesc', 'theme_moodlemoot');
     $options = theme_moodlemoot\util\extras::get_courseslist_select();
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
-    $setting->set_updatedcallback('theme_reset_all_caches');
+    $setting = new admin_setting_configmultiselect($name, $title, $description, null, $options);
     $page->add($setting);
 
     // Google analytics block.

@@ -53,6 +53,31 @@ class extras {
     }
 
     /**
+     * Get the list of visible courses
+     *
+     * @return array
+     *
+     * @throws dml_exception
+     */
+    public static function get_courseslist_select() {
+        global $DB;
+
+        $sql = 'SELECT id, shortname FROM {course} WHERE visible = 1 AND id > 1 ORDER BY id DESC';
+        $courses = $DB->get_records_sql($sql);
+
+        if (empty($courses)) {
+            return [];
+        }
+
+        $coursesmenu = [];
+        foreach ($courses as $course) {
+            $coursesmenu[$course->id] = $course->shortname;
+        }
+
+        return $coursesmenu;
+    }
+
+    /**
      * Returns the first course's summary issue
      *
      * @param $course
