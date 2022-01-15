@@ -45,8 +45,8 @@ $string['madewitmoodle'] = 'Orgulhosamente feito com o';
 
 // General settings tab.
 $string['generalsettings'] = 'Geral';
-$string['currentedition'] = 'Edição atual do MM';
-$string['currenteditiondesc'] = 'Esta edição será destacada na página inicial';
+$string['slideshowcourses'] = 'Cursos do slideshow';
+$string['slideshowcoursesdesc'] = 'Lista de cursos para serem exibidos no slideshow da página inicial';
 $string['googleanalytics'] = 'Código do Google Analytics';
 $string['googlenalyticsdesc'] = 'Por favor digite o código do Google Analytics para habilitá-lo no seu site. O código deve ter o formato [UA-XXXXX-Y]';
 

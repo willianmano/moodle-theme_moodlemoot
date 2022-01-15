@@ -45,8 +45,8 @@ $string['madewitmoodle'] = 'Proudly made with';
 
 // General settings tab.
 $string['generalsettings'] = 'General';
-$string['currentedition'] = 'Current MM Edition';
-$string['currenteditiondesc'] = 'This edition will be spotlighted on frontpage';
+$string['slideshowcourses'] = 'Slide show courses';
+$string['slideshowcoursesdesc'] = 'List of courses to be displayed in the slideshow on frontpage.';
 $string['googleanalytics'] = 'Google Analytics Code';
 $string['googleanalyticsdesc'] = 'Please enter your Google Analytics code to enable analytics on your website. The code format shold be like [UA-XXXXX-Y]';
 
