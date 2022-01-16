@@ -8,9 +8,9 @@
             </ol>
             <div class="carousel-inner">
                 {{#slideshowcourses}}
-                    <div class="carousel-item {{#active}}active{{/active}}">
+                    <div class="carousel-item {{#active}}active{{/active}}"
+                        style="background: url('{{{courseheader}}}') no-repeat; background-size: cover; height: 480px; background-position: center;">
                         <a href="{{config.wwwroot}}/course/view.php?id={{id}}">
-                            <img src="{{{courseheader}}}" alt="{{{name}}}" class="d-block w-100" style="height: 480px;">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>{{{name}}}</h5>
                             </div>
