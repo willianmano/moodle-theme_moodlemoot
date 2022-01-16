@@ -49,7 +49,67 @@ class extras {
      * @throws dml_exception
      */
     public static function get_slideshow_courses() {
-        return [];
+        global $DB;
+
+        $theme = \theme_config::load('moodlemoot');
+
+        $slideshowcourses = $theme->settings->slideshowcourses;
+
+        if (!$slideshowcourses) {
+            return [];
+        }
+
+        $slideshowcourses = explode(',', $slideshowcourses);
+
+        list($insql, $inparams) = $DB->get_in_or_equal($slideshowcourses);
+
+        $sql = "SELECT * FROM {course} WHERE id $insql";
+
+        $courses = $DB->get_records_sql($sql, $inparams);
+
+        $slideshowdata = [];
+        $i = 0;
+        foreach ($courses as $course) {
+            $slideshow = [
+                'id' => $course->id,
+                'slidercounter' => $i,
+                'name' => $course->fullname,
+                'active' => false,
+                'courseheader' => self::get_courseheader_image($course)
+            ];
+
+            if ($i == 0) {
+                $slideshow['active'] = true;
+            }
+
+            $slideshowdata[] = $slideshow;
+
+            $i++;
+        }
+
+        return $slideshowdata;
+    }
+
+    public static function get_courseheader_image($course) {
+        global $CFG;
+
+        $courseformatoptions = course_get_format($course)->get_format_options();
+
+        $defaultimg = "$CFG->wwwroot/course/format/preview/pix/default_courseheader.svg";
+
+        if (!$courseformatoptions['courseheader']) {
+            return $defaultimg;
+        }
+
+        $file = format_preview_get_file($courseformatoptions['courseheader']);
+
+        if (is_null($file)) {
+            return $defaultimg;
+        }
+
+        $url = "$CFG->wwwroot/pluginfile.php/$file->contextid/$file->component/$file->filearea/$file->itemid/$file->filename?forcedownload=1";
+
+        return $url;
     }
 
     /**

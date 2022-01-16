@@ -36,8 +36,10 @@ $templatecontext = [
 $editionsinfo = new stdClass();
 $templatecontext['wearetxt'] = get_string('wearetxt', 'theme_moodlemoot', $editionsinfo);
 
-$currentedition = \theme_moodlemoot\util\extras::get_slideshow_courses();
+$slideshowcourses = \theme_moodlemoot\util\extras::get_slideshow_courses();
+$hasslideshowcourses = !empty($slideshowcourses);
 
-$templatecontext['currentedition'] = $currentedition;
+$templatecontext['slideshowcourses'] = $slideshowcourses;
+$templatecontext['hasslideshowcourses'] = $hasslideshowcourses;
 
 echo $OUTPUT->render_from_template('theme_moodlemoot/frontpage', $templatecontext);
