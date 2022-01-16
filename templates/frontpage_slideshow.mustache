@@ -1,5 +1,5 @@
 {{#hasslideshowcourses}}
-    <div id="frontpageslideshow">
+    <div id="frontpageslideshow" class="container">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 {{#slideshowcourses}}
@@ -8,9 +8,9 @@
             </ol>
             <div class="carousel-inner">
                 {{#slideshowcourses}}
-                    <div class="carousel-item {{#active}}active{{/active}}"
-                        style="background: url('{{{courseheader}}}') no-repeat; background-size: cover; height: 480px; background-position: center;">
+                    <div class="carousel-item {{#active}}active{{/active}}">
                         <a href="{{config.wwwroot}}/course/view.php?id={{id}}">
+                            <img src="{{{courseheader}}}" alt="{{{name}}}" class="d-block w-100" style="height: auto;">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>{{{name}}}</h5>
                             </div>
