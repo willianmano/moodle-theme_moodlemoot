@@ -265,7 +265,7 @@ class extras {
                     'class' => 'btn btn-block btn-outline-primary'
                 ],
                 [
-                    'title' => get_string($contacttitle, 'theme_moove'),
+                    'title' => get_string($contacttitle, 'theme_moodlemoot'),
                     'url' => new \moodle_url('/message/index.php', [
                             'user1' => $USER->id,
                             'user2' => $user->id,
