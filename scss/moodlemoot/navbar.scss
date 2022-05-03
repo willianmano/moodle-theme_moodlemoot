@@ -178,8 +178,12 @@
         }
     }
 
-    .message .popover-region-toggle {
-        padding: 0;
+    .message {
+        display: inherit;
+
+        .popover-region-toggle {
+            padding: 0;
+        }
     }
 
     .popover-region-notifications {
